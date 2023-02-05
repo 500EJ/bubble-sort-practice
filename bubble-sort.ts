@@ -1,13 +1,15 @@
 export default function bubbleSort(arr: number[]): number[] {
-  // Iterate through the array
-
-  // If the current value is greater than its neighbor to the right
-  // Swap those values
-
-  // Do not move this console.log
-  console.log(arr.join(","));
-
-  // If you get to the end of the array and no swaps have occurred, return
-
-  // Otherwise, repeat from the beginning
+  let sorted = false;
+  while (!sorted) {
+    sorted = true;
+    for (let i = 0; i < arr.length - 1; i++) {
+      const [current, next] = [arr[i], arr[i + 1]];
+      if (current && next && current > next) {
+        [arr[i], arr[i + 1]] = [next, current];
+        sorted = false;
+        console.log(arr.join(","));
+      }
+    }
+  }
+  return arr;
 }
